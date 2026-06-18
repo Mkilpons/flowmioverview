@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowmi – 3 Month Growth Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800;900&family=DM+Mono:wght@300;400;500&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f0e8;
+    --ink: #0f0e0c;
+    --green: #059669;
+    --muted: #7a7060;
+    --rule: #d8cfc0;
+    --gold: #c4a055;
+    --bg: #0f0e0c;
+    --surface: #1a1810;
+    --border: #2a2620;
+    --red: #f87171;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--paper);
+    font-family: 'Figtree', sans-serif;
+    padding: 2.5rem 1.25rem 5rem;
+  }
+
+  .page { max-width: 860px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    border-top: 5px solid var(--paper);
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 2.5rem;
+    animation: rise 0.6s ease both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  h1 em { color: var(--green); font-style: normal; }
+  .header-sub { font-size: 0.82rem; color: rgba(245,240,232,0.4); margin-top: 0.6rem; font-style: italic; }
+
+  /* SEC LABEL */
+  .sec-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 2.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .sec-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(196,160,85,0.2);
+  }
+
+  /* MONTH CARDS */
+  .month-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    animation: rise 0.5s ease both;
+  }
+
+  .month-card:nth-child(1) { animation-delay: 0.05s; }
+  .month-card:nth-child(2) { animation-delay: 0.1s; }
+  .month-card:nth-child(3) { animation-delay: 0.15s; }
+
+  .month-head {
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .month-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    opacity: 0.15;
+  }
+
+  .month-info { flex: 1; }
+
+  .month-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+  }
+
+  .month-theme {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .month-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .badge-gold { background: rgba(196,160,85,0.15); color: var(--gold); }
+  .badge-blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .badge-green { background: rgba(5,150,105,0.15); color: var(--green); }
+
+  .month-body { padding: 1.2rem 1.4rem; }
+
+  /* GOAL STRIP */
+  .goal-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .goal-strip.gold { background: rgba(196,160,85,0.08); border: 1px solid rgba(196,160,85,0.2); color: var(--gold); }
+  .goal-strip.blue { background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2); color: var(--blue); }
+  .goal-strip.green { background: rgba(5,150,105,0.08); border: 1px solid rgba(5,150,105,0.2); color: var(--green); }
+
+  .goal-icon { font-size: 1rem; flex-shrink: 0; }
+
+  /* WEEKS GRID */
+  .weeks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.2rem; }
+  @media (max-width: 560px) { .weeks { grid-template-columns: 1fr; } }
+
+  .week-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .week-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    margin-bottom: 0.35rem;
+  }
+
+  .week-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .week-tasks { list-style: none; }
+
+  .week-tasks li {
+    font-size: 0.68rem;
+    color: rgba(245,240,232,0.45);
+    line-height: 1.5;
+    padding: 0.15rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .week-tasks li::before {
+    content: '→';
+    color: var(--green);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  /* METRICS ROW */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  @media (max-width: 480px) { .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .metric-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 0.6rem 0.7rem;
+    text-align: center;
+  }
+
+  .metric-val {
+    font-family: 'Sora', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.2rem;
+  }
+
+  .metric-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.42rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.25);
+    line-height: 1.35;
+  }
+
+  /* MINDSET CALLOUT */
+  .mindset {
+    border-left: 3px solid var(--gold);
+    background: rgba(196,160,85,0.06);
+    padding: 0.8rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.78rem;
+    color: rgba(196,160,85,0.8);
+    line-height: 1.6;
+  }
+
+  .mindset-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  /* REVENUE PROJECTION */
+  .revenue-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .revenue-head {
+    padding: 1rem 1.4rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .revenue-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .revenue-body { padding: 1.2rem 1.4rem; }
+
+  .rev-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .rev-row:last-child { border-bottom: none; }
+
+  .rev-month {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+
+  .rev-bar-wrap {
+    height: 8px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .rev-bar {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--green), #34d399);
+    transition: width 1s ease;
+  }
+
+  .rev-amount {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--green);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .rev-detail {
+    font-size: 0.6rem;
+    color: rgba(245,240,232,0.25);
+    text-align: right;
+    margin-top: 0.1rem;
+  }
+
+  /* WARNING BOX */
+  .warning {
+    border-left: 3px solid var(--red);
+    background: rgba(248,113,113,0.06);
+    padding: 0.9rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .warning-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  .warning p {
+    font-size: 0.78rem;
+    color: rgba(248,113,113,0.7);
+    line-height: 1.65;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+
+  .checklist li {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    gap: 0.6rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+    align-items: start;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .checklist li:hover { background: rgba(255,255,255,0.02); padding-left: 0.3rem; margin: 0 -0.3rem; }
+  .checklist li:last-child { border-bottom: none; }
+
+  .chk {
+    width: 1.1rem; height: 1.1rem;
+    border: 1.5px solid #3a3628;
+    border-radius: 3px; margin-top: 0.15rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0;
+  }
+
+  li.done .chk { background: var(--green); border-color: var(--green); }
+  li.done .chk::after { content: '✓'; color: white; font-size: 0.62rem; font-weight: 700; }
+  li.done .chk-text { text-decoration: line-through; color: rgba(245,240,232,0.3); }
+
+  .chk-text strong { display: block; font-weight: 600; color: var(--paper); margin-bottom: 0.1rem; }
+  .chk-text span { color: rgba(245,240,232,0.4); font-size: 0.72rem; }
+
+  /* PROGRESS */
+  .progress-wrap {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem; padding: 1rem 1.4rem;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  }
+
+  .progress-bar { flex: 1; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--gold)); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+  .progress-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: rgba(245,240,232,0.4); white-space: nowrap; }
+  .progress-label strong { color: var(--green); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="kicker">Flowmi · Growth Roadmap</div>
+    <h1>July → September<br><em>2026</em></h1>
+    <div class="header-sub">3 months. From zero to your first real clients. Week by week.</div>
+  </header>
+
+  <!-- WARNING -->
+  <div class="warning">
+    <div class="warning-label">⚠️ The rule before you start</div>
+    <p>July 31st is the last day you're allowed to be "getting ready." August 1st you're reaching out to real businesses regardless of how ready you feel. Preparation without action is just procrastination with better lighting. Set the deadline and hold it.</p>
+  </div>
+
+  <!-- MONTH 1 -->
+  <div class="sec-label">Month 1 · July · Foundation</div>
+
+  <div class="month-card">
+    <div class="month-head">
+      <div class="month-num" style="color:var(--gold);">01</div>
+      <div class="month-info">
+        <div class="month-name">July — Build The Machine</div>
+        <div class="month-theme">GoHighLevel · Website · Demo · Practice</div>
+      </div>
+      <div class="month-badge badge-gold">Prep Month</div>
+    </div>
+    <div class="month-body">
+
+      <div class="goal-strip gold">
+        <div class="goal-icon">🎯</div>
+        <div>Goal: Be 100% ready to sign your first client by July 31st</div>
+      </div>
+
+      <div class="weeks">
+        <div class="week-card">
+          <div class="week-label">Week 1 · Jul 1–7</div>
+          <div class="week-title">Learn GoHighLevel</div>
+          <ul class="week-tasks">
+            <li>Sign up for GHL 14-day free trial</li>
+            <li>Watch beginner tutorials daily — 1hr minimum</li>
+            <li>Understand sub-accounts, booking, and CRM</li>
+            <li>Keep posting on Instagram & Threads daily</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 2 · Jul 8–14</div>
+          <div class="week-title">Build Flowmi's Website</div>
+          <ul class="week-tasks">
+            <li>Take the full weekend to build flowmi.co in GHL</li>
+            <li>Add booking page for prospects to book a free call</li>
+            <li>Build 2–3 client demo models in GHL</li>
+            <li>Connect your Instagram & Threads to the site</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 3 · Jul 15–21</div>
+          <div class="week-title">Sales & Demo Practice</div>
+          <ul class="week-tasks">
+            <li>Practice cold call pitch daily — record yourself</li>
+            <li>Do 5 mock demo calls with girlfriend or friend</li>
+            <li>Finalize email outreach templates</li>
+            <li>Build your first lead list — 50 local businesses</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 4 · Jul 22–31</div>
+          <div class="week-title">Soft Launch</div>
+          <ul class="week-tasks">
+            <li>Start emailing leads — 10 per day</li>
+            <li>Make 5 cold calls per day</li>
+            <li>Repost Facebook Marketplace listings</li>
+            <li>Aim for at least 1 demo call booked</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--gold);">50</div>
+          <div class="metric-lbl">leads<br>identified</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--gold);">1</div>
+          <div class="metric-lbl">demo<br>booked</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--gold);">3</div>
+          <div class="metric-lbl">demo<br>models</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--gold);">$0</div>
+          <div class="metric-lbl">revenue<br>target</div>
+        </div>
+      </div>
+
+      <div class="mindset">
+        <div class="mindset-label">💡 July mindset</div>
+        This month is not about money. It's about building the foundation so strong that August becomes inevitable. Every hour you spend learning GHL and practicing your pitch is an investment. Don't rush it — but don't drag it out either.
+      </div>
+    </div>
+  </div>
+
+  <!-- MONTH 2 -->
+  <div class="sec-label">Month 2 · August · First Clients</div>
+
+  <div class="month-card">
+    <div class="month-head">
+      <div class="month-num" style="color:var(--blue);">02</div>
+      <div class="month-info">
+        <div class="month-name">August — Land & Deliver</div>
+        <div class="month-theme">Outreach · Demos · Close · Onboard</div>
+      </div>
+      <div class="month-badge badge-blue">Execution Month</div>
+    </div>
+    <div class="month-body">
+
+      <div class="goal-strip blue">
+        <div class="goal-icon">🎯</div>
+        <div>Goal: Sign 2–3 paying clients. Deliver results. Get testimonials.</div>
+      </div>
+
+      <div class="weeks">
+        <div class="week-card">
+          <div class="week-label">Week 1 · Aug 1–7</div>
+          <div class="week-title">Full Outreach Mode</div>
+          <ul class="week-tasks">
+            <li>10 emails per day — you + girlfriend</li>
+            <li>5–10 cold calls per day</li>
+            <li>Follow up on every July lead that didn't reply</li>
+            <li>Post content daily — reels, posts, stories</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 2 · Aug 8–14</div>
+          <div class="week-title">Run Demos & Close</div>
+          <ul class="week-tasks">
+            <li>Run every demo call that gets booked</li>
+            <li>Send proposals within 1 hour of each call</li>
+            <li>Follow up on every demo that didn't close</li>
+            <li>Target: close your first paying client</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 3 · Aug 15–21</div>
+          <div class="week-title">Deliver & Onboard</div>
+          <ul class="week-tasks">
+            <li>Set up first client's full GHL account</li>
+            <li>Build their booking page and website</li>
+            <li>Complete 7-day setup checklist</li>
+            <li>Keep outreach going — don't pause for delivery</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 4 · Aug 22–31</div>
+          <div class="week-title">Scale Outreach</div>
+          <ul class="week-tasks">
+            <li>Aim for 2nd and 3rd client signed</li>
+            <li>Ask first client for a testimonial</li>
+            <li>Document everything for content</li>
+            <li>Refine your pitch based on real objections heard</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--blue);">100+</div>
+          <div class="metric-lbl">outreach<br>contacts</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--blue);">5+</div>
+          <div class="metric-lbl">demo<br>calls</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--blue);">2–3</div>
+          <div class="metric-lbl">clients<br>signed</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--blue);">$900</div>
+          <div class="metric-lbl">revenue<br>target</div>
+        </div>
+      </div>
+
+      <div class="mindset">
+        <div class="mindset-label">💡 August mindset</div>
+        August will feel uncomfortable. You'll get rejections. You'll have demos that don't close. That's not failure — that's the job. Every "no" teaches you something. Every rejection makes your pitch sharper. The goal isn't perfection — it's momentum. Keep moving.
+      </div>
+    </div>
+  </div>
+
+  <!-- MONTH 3 -->
+  <div class="sec-label">Month 3 · September · Growth</div>
+
+  <div class="month-card">
+    <div class="month-head">
+      <div class="month-num" style="color:var(--green);">03</div>
+      <div class="month-info">
+        <div class="month-name">September — Systematize & Scale</div>
+        <div class="month-theme">Retention · Referrals · Systems · Growth</div>
+      </div>
+      <div class="month-badge badge-green">Growth Month</div>
+    </div>
+    <div class="month-body">
+
+      <div class="goal-strip green">
+        <div class="goal-icon">🎯</div>
+        <div>Goal: Hit 5+ clients. Build systems so growth doesn't depend on you alone.</div>
+      </div>
+
+      <div class="weeks">
+        <div class="week-card">
+          <div class="week-label">Week 1 · Sep 1–7</div>
+          <div class="week-title">Retain & Delight</div>
+          <ul class="week-tasks">
+            <li>Check in with every August client — how's it going?</li>
+            <li>Fix anything that needs adjusting in their setup</li>
+            <li>Ask for Google reviews and testimonials</li>
+            <li>Document client results for social proof content</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 2 · Sep 8–14</div>
+          <div class="week-title">Referral Push</div>
+          <ul class="week-tasks">
+            <li>Ask every happy client "do you know anyone else?"</li>
+            <li>Offer a referral incentive — 1 free month for each referral</li>
+            <li>Post real client results on Instagram and Threads</li>
+            <li>Real testimonials now replace fictional quote posts</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 3 · Sep 15–21</div>
+          <div class="week-title">Build Your System</div>
+          <ul class="week-tasks">
+            <li>Create a repeatable onboarding checklist in GHL</li>
+            <li>Set up GHL automation for follow-up sequences</li>
+            <li>Automate your own lead follow-up so nothing slips</li>
+            <li>Evaluate: should girlfriend become a paid team member?</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 4 · Sep 22–30</div>
+          <div class="week-title">Plan Quarter 2</div>
+          <ul class="week-tasks">
+            <li>Review what worked and what didn't — be honest</li>
+            <li>Set October–December targets based on real data</li>
+            <li>Consider raising prices for new clients to $120/mo</li>
+            <li>Celebrate — you built something real from $0 🌊</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--green);">5+</div>
+          <div class="metric-lbl">active<br>clients</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--green);">3+</div>
+          <div class="metric-lbl">real<br>testimonials</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--green);">$450</div>
+          <div class="metric-lbl">monthly<br>recurring</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color:var(--green);">$353</div>
+          <div class="metric-lbl">monthly<br>profit</div>
+        </div>
+      </div>
+
+      <div class="mindset">
+        <div class="mindset-label">💡 September mindset</div>
+        By September you'll have proof it works. Real clients. Real results. Real money. Now the game changes from "can I get clients" to "how do I keep growing without burning out." Systems beat hustle long term. Start building them now.
+      </div>
+    </div>
+  </div>
+
+  <!-- REVENUE PROJECTION -->
+  <div class="sec-label">Revenue Projection · Conservative Estimate</div>
+
+  <div class="revenue-card">
+    <div class="revenue-head">
+      <div class="revenue-title">3-Month Revenue Outlook</div>
+      <div class="month-badge badge-green">Conservative</div>
+    </div>
+    <div class="revenue-body">
+      <div class="rev-row">
+        <div>
+          <div class="rev-month">July</div>
+          <div class="rev-detail">0 clients · learning</div>
+        </div>
+        <div class="rev-bar-wrap"><div class="rev-bar" style="width:2%;"></div></div>
+        <div>
+          <div class="rev-amount">$0</div>
+          <div class="rev-detail">prep month</div>
+        </div>
+      </div>
+      <div class="rev-row">
+        <div>
+          <div class="rev-month">August</div>
+          <div class="rev-detail">1–3 clients · setup fees</div>
+        </div>
+        <div class="rev-bar-wrap"><div class="rev-bar" style="width:45%;"></div></div>
+        <div>
+          <div class="rev-amount">$600–900</div>
+          <div class="rev-detail">setup fees + first month free</div>
+        </div>
+      </div>
+      <div class="rev-row">
+        <div>
+          <div class="rev-month">September</div>
+          <div class="rev-detail">3–5 clients · recurring</div>
+        </div>
+        <div class="rev-bar-wrap"><div class="rev-bar" style="width:75%;"></div></div>
+        <div>
+          <div class="rev-amount">$270–450</div>
+          <div class="rev-detail">monthly recurring begins</div>
+        </div>
+      </div>
+      <div class="rev-row" style="padding-top:0.8rem; margin-top:0.3rem; border-top: 1px solid rgba(255,255,255,0.07); border-bottom:none;">
+        <div>
+          <div class="rev-month" style="color:var(--green);">Q4 Target</div>
+          <div class="rev-detail">if you keep going</div>
+        </div>
+        <div class="rev-bar-wrap"><div class="rev-bar" style="width:95%;"></div></div>
+        <div>
+          <div class="rev-amount" style="font-size:1rem;">$900+/mo</div>
+          <div class="rev-detail">10 clients recurring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MASTER CHECKLIST -->
+  <div class="sec-label">Master Checklist · The Non-Negotiables</div>
+
+  <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:1.5rem;">
+    <div style="padding:1rem 1.4rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between;">
+      <div style="font-family:'Sora',sans-serif; font-size:0.95rem; font-weight:700;">Things That Cannot Slip</div>
+      <div class="month-badge badge-gold">Every Week</div>
+    </div>
+    <div style="padding:1.2rem 1.4rem;">
+      <ul class="checklist">
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Post content every single day</strong>
+            <span>Instagram + Threads — even when nothing is happening. Consistency builds trust over time.</span>
+          </div>
+        </li>
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Send at least 10 outreach messages per day in August</strong>
+            <span>Email, DM, cold call — mix it up. Volume is everything in the early days.</span>
+          </div>
+        </li>
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Follow up with every lead that didn't reply</strong>
+            <span>80% of sales happen after the 5th follow-up. Most people give up after 1.</span>
+          </div>
+        </li>
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Deliver for every client within 7 days — no exceptions</strong>
+            <span>Your reputation is everything right now. One bad delivery kills word of mouth.</span>
+          </div>
+        </li>
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Document everything publicly</strong>
+            <span>The journey IS the content. First client, first rejection, first payment — post all of it.</span>
+          </div>
+        </li>
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Ask every happy client for a referral</strong>
+            <span>The easiest new client you'll ever get comes from someone you already served well.</span>
+          </div>
+        </li>
+        <li onclick="toggle(this)">
+          <div class="chk"></div>
+          <div class="chk-text">
+            <strong>Review your numbers every Sunday</strong>
+            <span>Leads contacted, demos booked, clients signed, revenue. What you measure you improve.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggle(el) {
+    el.classList.toggle('done');
+  }
+</script>
+</body>
+</html>
